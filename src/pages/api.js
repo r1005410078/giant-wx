@@ -142,6 +142,16 @@ export class UserUpdate extends Http {
   }
 }
 
+export class UserDetail extends Http {
+  url = 'minapp/user/detail'
+  success (next) {
+    this.result.then(res => {
+      next(res)
+    })
+    return this
+  }
+}
+
 // 领取红包
 export class RedpacketLucky extends Http {
   url = 'minapp/redpacket/lucky'

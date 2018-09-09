@@ -84,29 +84,32 @@ export default {
       this.payItems = payItems
     },
     async formSubmit (e) {
+      const that = this
       const val = e.target.value
-      const res = await api.payCreate.post({
+      const payCreateParmas = {
         pay_type: val.pay_type,
         station_id: val.station_id,
         combo_bike: this.selectCombo
-      }).toPromise()
+      }
+      const res = await api.payCreate.post(payCreateParmas).toPromise()
       store.commit('clearShop')
       if (res.error_code === 409) {
-        wx.showModal({
-          title: '提交失败',
-          content: '请先绑定手机号!',
-          confirmText: '去绑定',
-          cancelText: '取消',
-          success: function (res) {
-            if (res.confirm) {
-              wx.navigateTo({url: '/pages/userinfo/main'})
-            }
-          }
-        })
+        wx.navigateTo({url: '/pages/userinfo/main'})
+        // wx.showModal({
+        //   title: '提交失败',
+        //   content: '请先绑定手机号!',
+        //   confirmText: '去绑定',
+        //   cancelText: '取消',
+        //   showCancel: true,
+        //   success: function (res) {
+        //     if (res.confirm) {
+        //       wx.navigateTo({url: '/pages/userinfo/main'})
+        //     }
+        //   }
+        // })
       }
 
       this.order_no = res.data.order_no
-
       if (val.pay_type === '1') {
         // 微信支付
         const result = await api.payOrder.post({ order_no: this.order_no }).toPromise()
@@ -126,7 +129,7 @@ export default {
                   wx.navigateBack({
                     delta: 1
                   })
-                  wx.hideTabBarRedDot({index: 1})
+                  that.hideTabBarRedDot()
                 }
               }
             })
@@ -141,7 +144,7 @@ export default {
                     wx.navigateBack({
                       delta: 1
                     })
-                    wx.hideTabBarRedDot({index: 1})
+                    that.hideTabBarRedDot({index: 1})
                   }
                 }
               })
@@ -165,11 +168,16 @@ export default {
               wx.navigateBack({
                 delta: 1
               })
-              wx.hideTabBarRedDot({index: 1})
+              that.hideTabBarRedDot({index: 1})
             }
           }
         })
       }
+    },
+    hideTabBarRedDot () {
+      setTimeout(() => {
+        wx.hideTabBarRedDot({index: 1})
+      }, 500)
     }
   }
 }

@@ -6,8 +6,11 @@
       </div>
     </scroll-view>
     <div class="tab-footer">
-      <div class='jie-suan' @click="Pay">
+      <div v-show="isPay" class='jie-suan' @click="Pay">
         去结算
+      </div>
+      <div v-show="!isPay" class='jie-suan' style="background: #666;">
+        未选满车辆
       </div>
       <div class="pice">
         ￥0
@@ -33,7 +36,7 @@ export default {
       return gStore.state.combo.list.filter(item => item.shop_count > 0)
     },
     isPay () {
-      return this.data.length > 0 && this.data.some(item => item.car_list && item.car_list.length === item.shop_count)
+      return this.data.length > 0 && !this.data.some(item => !(item.car_list && item.car_list.length === item.shop_count * item.bike_count))
     }
   },
   methods: {
@@ -53,7 +56,6 @@ export default {
     }
   },
   onLoad: function () {
-    console.log('购物车')
     wx.getSystemInfo({
       success: res => {
         this.windowHeight = res.windowHeight

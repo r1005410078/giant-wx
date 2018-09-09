@@ -1,15 +1,15 @@
 <template>
 <div>
   <div class="weui-panel weui-panel_access">
-    <div url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <navigator url="/pages/userinfo/main" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
       <div class="weui-media-box__hd weui-media-box__hd_in-appmsg">
         <image class="weui-media-box__thumb" :src="userInfo.avatarUrl" />
       </div>
-       <navigator url="/pages/userinfo/main" class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+       <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <div class="weui-media-box__title">{{userInfo.nickName}}</div>
           <div class="weui-media-box__desc">{{user.phone}}</div>
-        </navigator>
-    </div>
+        </div>
+    </navigator>
   </div>
   <div class="weui-panel">
     <div class="weui-panel__bd">

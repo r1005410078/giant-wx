@@ -10,7 +10,7 @@
           <!--  v-show="comboInfo.shop_count" -->
           <navigator :url="'/pages/selectvehicle/main?id='+comboInfo.id" class="sao-yi-sao">
             <image class="sao-yi-sao-image" src="/resource/images/saoyisao.png" />
-            <span class="sao-yi-sao-text">已选择 {{comboInfo.car_list.length}} 辆, 还差 {{comboInfo.bike_count * comboInfo.shop_count - comboInfo.car_list.length}} 辆</span>
+            <span class="sao-yi-sao-text">已选择 {{comboInfo.car_list.length}} 辆, 还可以选择 {{comboInfo.bike_count * comboInfo.shop_count - comboInfo.car_list.length}} 辆</span>
           </navigator>
           <p v-for="val in comboInfo.interval" :key="val.start_time">
             <span class="price">￥{{val.money}}</span> 收费区间：{{val.start_time}} 至 {{val.end_time < 9999 ? val.end_time : '∞' }}
@@ -23,7 +23,6 @@
             <div class='add' @click="addCombo(comboInfo)">+</div>
           </div>
         </div>
-
       </div>
     </div>
   </div>

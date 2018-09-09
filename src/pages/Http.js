@@ -1,5 +1,5 @@
 export default class Http {
-  baseUrl = 'https://minapp.coder4j.cn/'
+  baseUrl = 'https://minapp.cyclestation.cn/'
   constructor () {
     this.result = new Promise((resolve, reject) => {
       this.resolve = resolve

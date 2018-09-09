@@ -74,7 +74,7 @@ export default {
     width:29rpx;
     margin-right:5px;
   }
-  .weui-media-box__info__meta_extra {
+  .weui-media-box__info__meta {
     color: #0099FF;
   }
 </style>

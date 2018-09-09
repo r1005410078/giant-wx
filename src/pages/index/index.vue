@@ -48,7 +48,6 @@ export default {
   computed: {
     comboList () {
       if (store.state.list.length === 0) {
-        console.log(1111, api.comboList)
         api.comboList.post({ page: 1, page_size: 99 })
           .success(res => {
             store.commit('getComboList', res.data)

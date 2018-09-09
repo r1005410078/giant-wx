@@ -51,19 +51,19 @@ export default {
     this.id = Number(options.id)
   },
   methods: {
-    add2 (id) {
+    add (id) {
       wx.scanCode({
         success: (res) => {
           api.bikeDetail.post({
             id: res.result
           }).success(res => {
-            const data = res.data.data
+            const data = res
             store.commit('addCarToShop', {id: id, data: data})
           })
         }
       })
     },
-    add (id) {
+    add2 (id) {
       api.bikeDetail.post({
         id: 1
       }).success(res => {

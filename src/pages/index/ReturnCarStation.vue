@@ -23,6 +23,7 @@
 <script>
 import store from './store'
 import detailStore from '../detail/store'
+import QQMapWX from 'rongts-qq-map'
 import api from '../getApi'
 export default {
   data () {
@@ -31,6 +32,9 @@ export default {
     }
   },
   onLoad () {
+    this.qqmapsdk = new QQMapWX({
+      key: 'KMDBZ-RGRK2-OVNU4-CWO6V-O5MME-TJBPE'
+    })
     api.stationList.post({
       page: 1,
       page_size: 99
@@ -47,10 +51,23 @@ export default {
       })
     },
     openMap (address) {
-      wx.openLocation({
-        latitude: Number(address.lat),
-        longitude: Number(address.lng),
-        scale: 28
+      this.qqmapsdk.reverseGeocoder({
+        location: {
+          latitude: Number(address.lat),
+          longitude: Number(address.lng)
+        },
+        coord_type: 3, // baidu经纬度
+        success: res => {
+          const location = res.result.ad_info.location
+          wx.openLocation({
+            latitude: location.lat,
+            longitude: location.lng,
+            scale: 28
+          })
+        },
+        complete: function (res) {
+          console.log(res)
+        }
       })
     }
   }

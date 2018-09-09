@@ -14,6 +14,7 @@
     "mpvue": "^1.0.11",
     "mpvue-wxparse": "^0.6.5",
     "mpvue-wxparse2": "0.0.2",
+    "rongts-qq-map": "^1.0.0",
     "rongts-wxparse": "^1.0.0",
     "vuex": "^3.0.1",
     "wxparse": "0.0.1"

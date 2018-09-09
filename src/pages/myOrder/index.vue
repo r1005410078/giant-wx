@@ -135,7 +135,7 @@
                   </div>
                   <div class="weui-form-preview__item">
                     <div class="weui-form-preview__label">留言评论</div>
-                    <navigator :url="'/pages/leaveMessage/main?deposit_order_no=' + item.deposit_order_no" class="weui-form-preview__value submit">去留言</navigator>
+                    <navigator :url="'/pages/leaveMessage/main?deposit_order_no=' + item.deposit_order_no + '&comment=' + item.comment + '&score=' + item.score" class="weui-form-preview__value submit">去留言打分</navigator>
                   </div>
               </div>
             </div>

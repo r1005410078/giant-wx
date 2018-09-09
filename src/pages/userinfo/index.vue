@@ -9,6 +9,15 @@
               <input @input="onNameChange" :value="name" class="weui-input" placeholder="请输入姓名"/>
           </div>
         </div>
+        <div class="weui-cell weui-cell_input">
+          <div class="weui-cell__hd">
+            <div class="weui-label">身份证</div>
+          </div>
+          <div class="weui-cell__bd">
+            <input @input="onIDCardChange" :value="id_card" class="weui-input" placeholder="请输入身份证"/>
+            <span class="id-card">填写身份可享受免费保险</span>
+          </div>
+        </div>
         <div class="weui-cell weui-cell_input weui-cell_vcode">
           <div class="weui-cell__hd">
             <div class="weui-label">手机号</div>
@@ -43,10 +52,19 @@ export default {
   data () {
     return {
       code: 0,
-      name: store.state.info.name,
-      phone: store.state.info.phone,
-      sms_code: ''
+      name: '',
+      phone: '',
+      sms_code: '',
+      id_card: ''
     }
+  },
+  onLoad: function () {
+    api.userDetail.post().success(ret => {
+      const info = ret.data
+      this.name = info.nickname
+      this.phone = info.phone
+      this.id_card = info.id_card
+    })
   },
   methods: {
     verificationPhone () {
@@ -77,6 +95,9 @@ export default {
     onNameChange (e) {
       this.name = e.target.value
     },
+    onIDCardChange (e) {
+      this.id_card = e.target.value
+    },
     onPhoneChange (e) {
       this.phone = e.target.value
     },
@@ -100,7 +121,8 @@ export default {
         nick_name: this.name,
         phone: this.phone,
         real_name: this.name,
-        sms_code: this.sms_code
+        sms_code: this.sms_code,
+        id_card: this.id_card
       }).success(res => {
         if (!res.error_code) {
           wx.showToast({
@@ -132,5 +154,8 @@ export default {
 <style scoped>
   .weui-btn-area {
     margin-top: 35px;
+  }
+  .id-card {
+    font-size: 12px;
   }
 </style>

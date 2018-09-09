@@ -1,10 +1,12 @@
 <template>
-  <div class="weui-panel__bd">
-    <div @click="skipDetail(item.content)" v-for="(item, index) in data" :key="index" class="weui-media-box weui-media-box_text">
-      <div class="weui-media-box__image">
-        <image class="weui-media-box__thumb" :src="item.cover_img" />
+  <div class="precautions">
+    <div class="weui-panel" v-for="(item, index) in data" :key="index" >
+      <div @click="skipDetail(item.content)" class="weui-media-box weui-media-box_text">
+        <div class="weui-media-box__image">
+          <image class="weui-media-box__thumb" :src="item.cover_img" />
+        </div>
+        <div class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</div>
       </div>
-      <div class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</div>
     </div>
   </div>
 </template>
@@ -39,12 +41,18 @@ export default {
 </script>
 
 <style scoped>
+  .precautions {
+    padding:10px 10px;
+  }
+  .weui-panel__bd {
+    margin-bottom: 15px;
+  }
   .weui-media-box__image {
     height: 167px;
     margin-bottom: 15px;
   }
   .weui-media-box {
-    border: 1px solid #eee;
+    border:1px solid #eee;
     border-radius: 5px;
   }
 </style>
