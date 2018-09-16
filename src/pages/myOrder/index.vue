@@ -14,7 +14,7 @@
                 <div class="weui-form-preview__hd">
                   <div class="weui-form-preview__item">
                     <div class="weui-form-preview__label">合计押金</div>
-                    <div class="weui-form-preview__value_in-hd">¥{{item.deposit_money}}</div>
+                    <div class="weui-form-preview__value_in-hd" style="color: #CC3366">¥{{item.deposit_money}}</div>
                   </div>
                 </div>
                 <div class="weui-form-preview__bd">
@@ -31,7 +31,7 @@
                       <div class="weui-form-preview__value">{{item.rent_station_name}}</div>
                     </div>
                     <div class="weui-form-preview__item">
-                      <div class="weui-form-preview__label">车辆</div>
+                      <div class="weui-form-preview__label">车辆编号</div>
                       <div class="weui-form-preview__value">{{item.bike_num_list}}</div>
                     </div>
                     <div class="weui-form-preview__item">
@@ -56,7 +56,7 @@
                 <div class="weui-form-preview__hd">
                   <div class="weui-form-preview__item">
                     <div class="weui-form-preview__label">租金合计</div>
-                    <div class="weui-form-preview__value_in-hd">¥{{item.rent_money}}</div>
+                    <div class="weui-form-preview__value_in-hd" style="color: #CC3366">¥{{item.rent_money}}</div>
                   </div>
                 </div>
                 <div class="weui-form-preview__bd">
@@ -64,8 +64,8 @@
                         <div class="weui-form-preview__label">订单号</div>
                         <view class="weui-form-preview__value">{{item.deposit_order_no}}</view>
                     </div>
-                    <div class="weui-form-preview__item" @click="selectRedEnvelope(item)">
-                      <div class="weui-form-preview__label">车辆</div>
+                    <div class="weui-form-preview__item">
+                      <div class="weui-form-preview__label">车辆编号</div>
                       <div class="weui-form-preview__value">{{item.bike_num_list}}</div>
                     </div>
                     <div class="weui-form-preview__item">
@@ -78,15 +78,19 @@
                     </div>
                      <div class="weui-form-preview__item" @click="selectPay(item)">
                       <div class="weui-form-preview__label">租金支付方式</div>
-                      <div class="weui-form-preview__value select-value">{{pays[item.pay_type]}}</div>
+                      <div class="weui-form-preview__value select-value weui-cell__ft_in-access">
+                        {{pays[item.pay_type]}}
+                      </div>
                     </div>
                     <div class="weui-form-preview__item" @click="selectPost(item)">
                       <div class="weui-form-preview__label">还车驿站</div>
-                      <div class="weui-form-preview__value select-value">{{stations[item.station_id] && stations[item.station_id].name}}</div>
+                      <div class="weui-form-preview__value select-value weui-cell__ft_in-access">
+                        {{stations[item.station_id] ? stations[item.station_id].name : '请选择驿站'}}
+                      </div>
                     </div>
                     <div class="weui-form-preview__item" @click="selectRedEnvelope(item)">
                       <div class="weui-form-preview__label">红包</div>
-                      <div class="weui-form-preview__value select-value">{{redEnvelope[item.redpackets_index] && redEnvelope[item.redpackets_index].money}}</div>
+                      <div class="weui-form-preview__value select-value weui-cell__ft_in-access">{{redEnvelope[item.redpackets_index] && redEnvelope[item.redpackets_index].money}}</div>
                     </div>
                 </div>
                 <div class="weui-form-preview__ft">
@@ -101,7 +105,7 @@
               <div class="weui-form-preview__hd">
                 <div class="weui-form-preview__item">
                   <div class="weui-form-preview__label">租金合计</div>
-                  <div class="weui-form-preview__value_in-hd">¥{{item.rent_money}}</div>
+                  <div class="weui-form-preview__value_in-hd" style="color: #CC3366">¥{{item.rent_money}}</div>
                 </div>
               </div>
               <div class="weui-form-preview__bd">
@@ -125,17 +129,17 @@
                     <div class="weui-form-preview__label">租金驿站</div>
                     <div class="weui-form-preview__value">{{item.rent_station_name}}</div>
                   </div>
-                  <div class="weui-form-preview__item" @click="selectPost(item)">
+                  <div class="weui-form-preview__item">
                     <div class="weui-form-preview__label">还车驿站</div>
                     <div class="weui-form-preview__value">{{item.return_station_name}}</div>
                   </div>
-                  <div class="weui-form-preview__item" @click="selectRedEnvelope(item)">
+                  <div class="weui-form-preview__item">
                     <div class="weui-form-preview__label">红包</div>
                     <div class="weui-form-preview__value">{{item.redpackets_money}}</div>
                   </div>
                   <div class="weui-form-preview__item">
                     <div class="weui-form-preview__label">留言评论</div>
-                    <navigator :url="'/pages/leaveMessage/main?deposit_order_no=' + item.deposit_order_no + '&comment=' + item.comment + '&score=' + item.score" class="weui-form-preview__value submit">去留言打分</navigator>
+                    <navigator :url="'/pages/leaveMessage/main?deposit_order_no=' + item.deposit_order_no + '&comment=' + item.comment + '&score=' + item.score" class="weui-form-preview__value weui-cell__ft_in-access submit">去留言打分</navigator>
                   </div>
               </div>
             </div>
@@ -147,6 +151,7 @@
 </template>
 
 <script>
+import {MillisecondToDate} from '../../utils'
 import store from '../index/store'
 import api from '../getApi'
 const sliderWidth = 96 // 需要设置slider的宽度，用于计算中间位置
@@ -189,6 +194,9 @@ export default {
     this.loadOrder()
   },
   methods: {
+    millisecondToDate (timer) {
+      return MillisecondToDate(timer)
+    },
     loadOrder () {
       // 待付押金
       api.payOrderList.post({
@@ -197,7 +205,10 @@ export default {
         deposit_status: 0,
         rent_status: 0
       }).success(res => {
-        this.tabsData0 = res.data
+        this.tabsData0 = res.data.map(info => {
+          info.rent_time = MillisecondToDate(info.rent_time)
+          return info
+        })
       })
 
       // 待付租金
@@ -210,8 +221,9 @@ export default {
         this.tabsData1 = res.data.map(info => {
           return {
             ...info,
+            rent_time: MillisecondToDate(info.rent_time),
             pay_type: info.rent_type - 1,
-            station_id: 0,
+            station_id: -1,
             redpackets_index: 0
           }
         })
@@ -227,6 +239,7 @@ export default {
         this.tabsData2 = res.data.map(info => {
           return {
             ...info,
+            rent_time: MillisecondToDate(info.rent_time),
             pay_type: 0,
             station_id: 0
           }
@@ -298,7 +311,7 @@ export default {
         if (!orderRet.ok) {
           return wx.showToast({
             title: '服务的错误',
-            duration: 2000
+            duration: 5000
           })
         }
 
@@ -314,7 +327,7 @@ export default {
             this.loadOrder()
             wx.showToast({
               title: '支付成功！',
-              duration: 2000
+              duration: 5000
             })
           },
           fail: error => {
@@ -336,6 +349,12 @@ export default {
     },
     // 支付租金
     async payRent (payInfo) {
+      if (!this.stations[payInfo.station_id]) {
+        return wx.showToast({
+          title: '请选择正确的驿站',
+          duration: 5000
+        })
+      }
       // 租金订单创建接口
       const ret = await api.payRent.post({
         order_sn: payInfo.deposit_order_no,
@@ -346,7 +365,7 @@ export default {
       if (!ret.ok) {
         return wx.showToast({
           title: '服务的错误',
-          duration: 2000
+          duration: 5000
         })
       }
 
@@ -358,7 +377,7 @@ export default {
         if (!orderRet.ok) {
           return wx.showToast({
             title: '服务的错误',
-            duration: 2000
+            duration: 5000
           })
         }
 
@@ -399,7 +418,7 @@ export default {
               wx.showToast({
                 title: '支付失败：' + error,
                 icon: 'none',
-                duration: 2000
+                duration: 5000
               })
             }
           }
@@ -432,11 +451,15 @@ export default {
   #navbar {
     background: #eeeeee;
   }
+  .weui-form-preview__item {
+    font-size: 16px;
+  }
   .select-value {
-    text-decoration: underline;
+    color: #3399CC;
+    /* text-decoration: underline; */
   }
   .submit {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: rgb(0, 162, 255);
   }
 </style>

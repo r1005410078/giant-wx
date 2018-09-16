@@ -5,7 +5,7 @@
               <div @click="onReceiveRedEnvelopes" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <div class="weui-cell__hd"><image src="/resource/images/hongbao.png" style="width: 20px;height: 20px;margin-right: 5px" /></div>
                 <div class="weui-cell__bd weui-cell_primary">
-                  <div>领取红包</div>
+                  <div style="color: #CC3366">领取红包</div>
                 </div>
               </div>
             </div>

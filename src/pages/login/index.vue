@@ -23,7 +23,7 @@ export default {
             wx.showToast({
               title: '登陆成功',
               icon: 'success',
-              duration: 1000
+              duration: 5000
             })
             wx.setStorageSync('access_token', res.access_token)
             wx.setStorageSync('code', res.code)

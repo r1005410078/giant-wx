@@ -29,13 +29,13 @@
                   </div>
                   <div class="weui-cell__ft weui-cell__ft_in-access"></div>
                 </navigator>
-                <navigator url="/pages/cyclingRecord/main" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <!-- <navigator url="/pages/cyclingRecord/main" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                     <div class="weui-cell__hd"><image src="/resource/images/zxc.png" style="width: 20px;height: 20px;margin-right: 5px" /></div>
                     <div class="weui-cell__bd weui-cell_primary">
                         <div>骑行记录</div>
                     </div>
                     <div class="weui-cell__ft weui-cell__ft_in-access"></div>
-                </navigator>
+                </navigator> -->
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
     </scroll-view>
     <div class="tab-footer">
       <div v-show="isPay" class='jie-suan' @click="Pay">
-        去结算
+        支付押金
       </div>
       <div v-show="!isPay" class='jie-suan' style="background: #666;">
         未选满车辆
@@ -50,7 +50,7 @@ export default {
       } else {
         wx.showToast({
           title: '车辆未选满！',
-          duration: 2000
+          duration: 5000
         })
       }
     }

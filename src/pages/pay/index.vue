@@ -3,30 +3,25 @@
     <form @submit="formSubmit" bindreset="formReset" :report-submit="true">
       <div class="weui-cells__title">支付方式</div>
         <div class="weui-cells weui-cells_after-title">
-          <radio-group name="pay_type" @change="payChange">
-            <label v-for="item in payItems" :key="item.value" class="weui-cell weui-check__label">
-              <radio class="weui-check" :value="item.value" :checked="item.checked"/>
-              <div class="weui-cell__bd">{{item.name}}</div>
-              <div class="weui-cell__ft weui-cell__ft_in-radio" v-if="item.checked">
-                <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
-              </div>
+          <radio-group name="pay_type" class="radio-group">
+            <label v-for="item in payItems" :key="item.value" class="weui-cell weui-check__label" >
+              <span class="text">{{item.name}}</span>
+              <radio class="weui-cell__ft weui-cell__ft_in-radio" :value="item.value" :checked="item.checked"/>
             </label>
           </radio-group>
       </div>
+      <div class="weui-cells__title" style="color: red">温馨提醒：因为押金是原路径退回，尽量选择余额支付，以免影响到账时间。</div>
       <div class="weui-cells__title">所在驿站</div>
       <div class="weui-cells weui-cells_after-title">
-        <radio-group name="station_id" @change="locationChange">
-          <label v-for="item in stations" :key="item.id" class="weui-cell weui-check__label">
-            <radio class="weui-check" :value="item.id" :checked="item.checked"/>
-            <div class="weui-cell__bd">{{item.address.address}}</div>
-            <div class="weui-cell__ft weui-cell__ft_in-radio" v-if="item.checked">
-              <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
-            </div>
+        <radio-group name="station_id" class="radio-group">
+          <label v-for="item in stations" :key="item.id" class="weui-cell weui-check__label" >
+            <span class="text">{{item.address.address}}</span>
+            <radio class="weui-cell__ft weui-cell__ft_in-radio" :value="item.id" :checked="item.checked"/>
           </label>
         </radio-group>
       </div>
       <div class="weui-btn-area">
-        <button formType="submit" class="weui-btn" type="primary">提交订单</button>
+        <button formType="submit" class="weui-btn" type="primary">提交租车订单</button>
       </div>
     </form>
   </div>
@@ -59,14 +54,15 @@ export default {
     }
   },
   onLoad () {
-    this.stations = store.state.stations.map((station, index) => {
-      if (index === 0) {
-        station.checked = true
-      } else {
-        station.checked = false
-      }
-      return station
-    })
+    this.stations = store.state.stations
+    // .map((station, index) => {
+    //   if (index === 0) {
+    //     station.checked = true
+    //   } else {
+    //     station.checked = false
+    //   }
+    //   return station
+    // })
   },
   methods: {
     locationChange (e) {
@@ -86,6 +82,12 @@ export default {
     async formSubmit (e) {
       const that = this
       const val = e.target.value
+      if (!val.station_id) {
+        return wx.showToast({
+          title: '请选择正确的驿站',
+          duration: 5000
+        })
+      }
       const payCreateParmas = {
         pay_type: val.pay_type,
         station_id: val.station_id,
@@ -122,7 +124,7 @@ export default {
           'paySign': ret.pay_sign,
           success: res => {
             wx.showModal({
-              content: '押金支付成功',
+              content: '押金支付成功，该订单可以在我的订单里面查询',
               showCancel: false,
               success: function (res) {
                 if (res.confirm) {
@@ -152,7 +154,7 @@ export default {
               wx.showToast({
                 title: '支付失败：' + error,
                 icon: 'none',
-                duration: 2000
+                duration: 5000
               })
             }
           }
@@ -184,5 +186,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .weui-cell__ft_in-radio {
+    position: absolute;
+    right: 15px;
+  }
 </style>

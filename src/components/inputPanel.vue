@@ -8,13 +8,13 @@
         <div @click="skipDetail(comboInfo.content)" class="weui-media-box__title weui-media-box__title_in-text">{{comboInfo.name}}</div>
         <div class="weui-media-box__desc">
           <!--  v-show="comboInfo.shop_count" -->
+          <p v-for="val in comboInfo.interval" :key="val.start_time">
+            <span class="price">￥{{val.money}}</span> 收费区间：{{val.start_time}}分钟 至 {{val.end_time < 9999 ? val.end_time + '分钟' : '∞' }}
+          </p>
           <navigator :url="'/pages/selectvehicle/main?id='+comboInfo.id" class="sao-yi-sao">
             <image class="sao-yi-sao-image" src="/resource/images/saoyisao.png" />
-            <span class="sao-yi-sao-text">已选择 {{comboInfo.car_list.length}} 辆, 还可以选择 {{comboInfo.bike_count * comboInfo.shop_count - comboInfo.car_list.length}} 辆</span>
+            <span class="sao-yi-sao-text weui-cell__ft_in-access">您已选 {{comboInfo.car_list.length}} 辆, 还需选择 {{comboInfo.bike_count * comboInfo.shop_count - comboInfo.car_list.length}} 辆</span>
           </navigator>
-          <p v-for="val in comboInfo.interval" :key="val.start_time">
-            <span class="price">￥{{val.money}}</span> 收费区间：{{val.start_time}} 至 {{val.end_time < 9999 ? val.end_time : '∞' }}
-          </p>
         </div>
         <div class="weui-media-box__info">
           <div class="weui-media-box__info__meta add-remove">
@@ -72,10 +72,13 @@ export default {
     font-size: 12px;
     margin-left: 5px;
     line-height: 20px;
-    color: #666;
+    color: #0099FF;
     position: relative;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     top: -5px;
+  }
+  .weui-cell__ft_in-access {
+    color: #0099FF !important;
   }
   .weui-media-box__title_in-text {
     margin-bottom: 0px;
@@ -128,5 +131,9 @@ export default {
     color: #CC3366;
     font-size: 14px;
     font-weight: 700;
+  }
+  .sao-yi-sao-text {
+    font-size: 16px;
+    font-weight: 600;
   }
 </style>

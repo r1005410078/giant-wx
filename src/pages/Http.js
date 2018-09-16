@@ -25,7 +25,7 @@ export default class Http {
           wx.showToast({
             title: res.data.error_msg,
             icon: 'none',
-            duration: 3000
+            duration: 5000
           })
           this.reject(res)
         }
@@ -60,7 +60,7 @@ export default class Http {
     this.result.error(err => {
       wx.showToast({
         title: '服务的错误' + err,
-        duration: 2000
+        duration: 5000
       })
       next(err)
     })

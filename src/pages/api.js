@@ -162,13 +162,13 @@ export class RedpacketLucky extends Http {
         wx.showToast({
           title: `领取 ${res.data}`,
           icon: 'success',
-          duration: 3000
+          duration: 5000
         })
       } else if (res.data === 0) {
         wx.showToast({
           title: `没有红包啦`,
           icon: 'error',
-          duration: 3000
+          duration: 5000
         })
       }
       next && next(res.data)

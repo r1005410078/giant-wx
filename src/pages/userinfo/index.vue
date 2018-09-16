@@ -68,12 +68,12 @@ export default {
   },
   methods: {
     verificationPhone () {
-      var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/
+      const myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/
       if (!myreg.test(this.phone)) {
         wx.showToast({
           title: '请输入有效的手机号码！',
           icon: 'error',
-          duration: 1000
+          duration: 5000
         })
         return false
       }
@@ -106,11 +106,20 @@ export default {
     },
     save () {
       this.verificationPhone()
+      const idcardreg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
+      if (this.id_card && !idcardreg.test(this.id_card)) {
+        wx.showToast({
+          title: '身份证格式错误！',
+          icon: 'error',
+          duration: 5000
+        })
+        return
+      }
       if (!this.sms_code) {
         wx.showToast({
           title: '验证码不能为空',
           icon: 'error',
-          duration: 1000
+          duration: 5000
         })
         return
       }
@@ -128,7 +137,7 @@ export default {
           wx.showToast({
             title: '保存成功',
             icon: 'success',
-            duration: 1000
+            duration: 5000
           })
           store.commit('saveUserInfo', {name: this.name, phone: this.phone})
           wx.hideLoading()
@@ -141,7 +150,7 @@ export default {
           wx.showToast({
             title: res.error_msg,
             icon: 'error',
-            duration: 1000
+            duration: 5000
           })
           wx.hideLoading()
         }
