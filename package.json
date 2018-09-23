@@ -17,6 +17,7 @@
     "rongts-qq-map": "^1.0.0",
     "rongts-wxparse": "^1.0.0",
     "vuex": "^3.0.1",
+    "weapp-qrcode": "^0.9.0",
     "wxparse": "0.0.1"
   },
   "devDependencies": {

@@ -139,7 +139,10 @@
                   </div>
                   <div class="weui-form-preview__item">
                     <div class="weui-form-preview__label">留言评论</div>
-                    <navigator :url="'/pages/leaveMessage/main?deposit_order_no=' + item.deposit_order_no + '&comment=' + item.comment + '&score=' + item.score" class="weui-form-preview__value weui-cell__ft_in-access submit">去留言打分</navigator>
+                    <navigator
+                      :url="'/pages/leaveMessage/main?deposit_order_no=' + item.deposit_order_no + '&comment=' + item.comment + '&score1=' + item.score1 + '&score2=' + item.score2 + '&score3=' + item.score3"
+                      class="weui-form-preview__value weui-cell__ft_in-access submit">去留言打分
+                    </navigator>
                   </div>
               </div>
             </div>
@@ -304,6 +307,7 @@ export default {
     async payDeposit (payInfo) {
       if (payInfo.deposit_type === 1) {
         // 押金订单支付接口
+        console.log(payInfo)
         const orderRet = await api.payOrder.post({
           order_no: payInfo.deposit_order_no
         }).toPromise()

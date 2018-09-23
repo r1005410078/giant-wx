@@ -1,4 +1,4 @@
-<template>
+{/* <template>
   <div>
     <form @submit="formSubmit" bindreset="formReset" :report-submit="true">
       <div class="weui-cells__title">支付方式</div>
@@ -96,7 +96,7 @@ export default {
       const res = await api.payCreate.post(payCreateParmas).toPromise()
       store.commit('clearShop')
       if (res.error_code === 409) {
-        wx.navigateTo({url: '/pages/userinfo/main'})
+        // wx.navigateTo({url: '/pages/userinfo/main'})
         wx.showModal({
           title: '提交失败',
           content: '请先绑定手机号!',
@@ -116,6 +116,7 @@ export default {
         // 微信支付
         const result = await api.payOrder.post({ order_no: this.order_no }).toPromise()
         const ret = result.data
+        console.log(ret)
         const params = {
           'timeStamp': ret.time_stamp,
           'nonceStr': ret.nonce_str,
@@ -136,30 +137,32 @@ export default {
               }
             })
           },
-          fail: error => {
-            if (error.errMsg === 'requestPayment:fail cancel') {
-              wx.showModal({
-                content: '订单创建成功, 请去我的订单中的待付押金中支付',
-                showCancel: false,
-                success: function (res) {
-                  if (res.confirm) {
-                    wx.navigateBack({
-                      delta: 1
-                    })
-                    that.hideTabBarRedDot({index: 1})
-                  }
+          fail: () => {
+            wx.showModal({
+              content: '支付失败, 您可以去我的订单中的待付押金中支付',
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                  that.hideTabBarRedDot({index: 1})
                 }
-              })
-            } else {
-              wx.showToast({
-                title: '支付失败：' + error,
-                icon: 'none',
-                duration: 5000
-              })
-            }
+              }
+            })
           }
         }
-        wx.requestPayment(params)
+        wx.showModal({
+          content: '您确认支付 ￥100 押金？确认后将无法修改押金了, 取消后可以与店长商议修改押金押金, 并在我的订单中的待付押金中支付',
+          showCancel: true,
+          success: function (res) {
+            if (res.confirm) {
+              wx.requestPayment(params)
+            } else {
+              wx.navigateBack({ delta: 1 })
+            }
+          }
+        })
       } else {
         wx.showModal({
           content: '订单创建成功, 请联系店长扫码支付或现金支付',
@@ -190,4 +193,4 @@ export default {
     position: absolute;
     right: 15px;
   }
-</style>
+</style> */}

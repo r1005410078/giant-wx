@@ -1,12 +1,30 @@
 <template>
-  <div>
-
+  <div class="page" v-show="showLogin">
+    <div class="weui-msg">
+        <div class="weui-msg__icon-area">
+            <icon type="success" size="93"></icon>
+        </div>
+        <div class="weui-msg__text-area">
+            <div class="weui-msg__title">登陆成功</div>
+            <div class="weui-msg__desc">当前网络安全， 确认微信授权</div>
+        </div>
+        <div class="weui-msg__opr-area">
+            <div class="weui-btn-area">
+               <button open-type="getUserInfo" @click="getUserInfo" class="weui-btn">允许</button>
+            </div>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
 import api from '../getApi'
 export default {
+  data () {
+    return {
+      showLogin: false
+    }
+  },
   onLoad () {
     wx.showLoading({
       title: '登陆中...'
@@ -20,33 +38,13 @@ export default {
           api.login.post({
             code: res.code
           }).success(res => {
-            wx.showToast({
-              title: '登陆成功',
-              icon: 'success',
-              duration: 5000
-            })
             wx.setStorageSync('access_token', res.access_token)
             wx.setStorageSync('code', res.code)
             wx.hideLoading()
-            wx.switchTab({url: '/pages/index/main'})
-          })
-          wx.getSetting({
-            success: res => {
-              if (res.authSetting['scope.userInfo']) {
-                // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                wx.getUserInfo({
-                  success: res => {
-                    // 可以将 res 发送给后台解码出 unionId
-                    this.userInfo = res.userInfo
-                    console.log(res)
-                    // // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                    // // 所以此处加入 callback 以防止这种情况
-                    // if (this.userInfoReadyCallback) {
-                    //   this.userInfoReadyCallback(res)
-                    // }
-                  }
-                })
-              }
+            if (wx.getStorageSync('userInfo')) {
+              wx.switchTab({url: '/pages/index/main'})
+            } else {
+              this.showLogin = true
             }
           })
         } else {
@@ -54,6 +52,12 @@ export default {
         }
       }
     })
+  },
+  methods: {
+    getUserInfo () {
+      wx.setStorageSync('userInfo', {})
+      wx.switchTab({url: '/pages/index/main'})
+    }
   }
 }
 </script>

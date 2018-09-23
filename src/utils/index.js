@@ -19,7 +19,7 @@ export function formatTime (date) {
 }
 
 export function MillisecondToDate (msd) {
-  let time = parseFloat(msd) / 1000
+  let time = parseFloat(msd)
   if (time !== null && time !== '') {
     if (time > 60 && time < 60 * 60) {
       time = parseInt(time / 60.0) + '分钟' + parseInt((parseFloat(time / 60.0) -

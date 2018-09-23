@@ -13,7 +13,7 @@
         未选满车辆
       </div>
       <div class="pice">
-        ￥0
+        <!-- ￥0 -->
       </div>
     </div>
   </div>

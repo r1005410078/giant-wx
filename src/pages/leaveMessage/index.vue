@@ -50,9 +50,9 @@ export default {
     return {
       comment: '',
       xingxing: [1, 2, 3, 4, 5],
-      score1: 3,
-      score2: 4,
-      score3: 2,
+      score1: 0,
+      score2: 0,
+      score3: 0,
       items: [
         {name: 0, value: '特别满意'},
         {name: 1, value: '比较满意'},
@@ -61,7 +61,11 @@ export default {
     }
   },
   onLoad (option) {
+    console.log(option)
     this.order_sn = option.deposit_order_no
+    this.score1 = Number(option.score1) || 0
+    this.score2 = Number(option.score2) || 0
+    this.score3 = Number(option.score3) || 0
     this.comment = option.comment || ''
     this.items = this.items.map(item => ({
       ...item,
@@ -76,8 +80,8 @@ export default {
       const res = await api.leaveMessage.post({
         comment: e.target.value.comment,
         score1: this.score1,
-        score2: this.score1,
-        score3: this.score1,
+        score2: this.score2,
+        score3: this.score3,
         order_sn: this.order_sn
       }).toPromise()
       if (res.ok) {

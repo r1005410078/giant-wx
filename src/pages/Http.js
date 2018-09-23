@@ -22,11 +22,15 @@ export default class Http {
         if (res.data.ok) {
           this.resolve(res.data)
         } else {
-          wx.showToast({
-            title: res.data.error_msg,
-            icon: 'none',
-            duration: 5000
-          })
+          setTimeout(() => {
+            wx.showToast({
+              title: res.data.error_msg,
+              icon: 'none'
+            })
+            setTimeout(() => {
+              wx.hideToast()
+            }, 2000)
+          }, 0)
           this.reject(res)
         }
       },
@@ -58,10 +62,15 @@ export default class Http {
   }
   error (next) {
     this.result.error(err => {
-      wx.showToast({
-        title: '服务的错误' + err,
-        duration: 5000
-      })
+      setTimeout(() => {
+        wx.showToast({
+          title: err,
+          icon: 'none'
+        })
+        setTimeout(() => {
+          wx.hideToast()
+        }, 2000)
+      }, 0)
       next(err)
     })
     return this
