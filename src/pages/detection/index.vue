@@ -10,11 +10,11 @@
               </div>
             </div>
             <div v-for="(item, index) in data" :key="index" class="weui-cells weui-cells_in-small-appmsg">
-              <div @click="skipDetail(item.content)" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <div @click="skipDetail(item.content)" class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">
                   <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                     <image class="weui-media-box__thumb" :src="item.cover_img" />
                   </view>
-                  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg weui-cell__ft_in-access">
                     <view class="weui-media-box__title">{{item.title}}</view>
                   </view>
               </div>

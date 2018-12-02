@@ -79,38 +79,8 @@ export default {
       }
       this.payItems = payItems
     },
-    async formSubmit (e) {
+    async payOrder (res, val) {
       const that = this
-      const val = e.target.value
-      if (!val.station_id) {
-        return wx.showToast({
-          title: '请选择正确的驿站',
-          duration: 5000
-        })
-      }
-      const payCreateParmas = {
-        pay_type: val.pay_type,
-        station_id: val.station_id,
-        combo_bike: this.selectCombo
-      }
-      const res = await api.payCreate.post(payCreateParmas).toPromise()
-      store.commit('clearShop')
-      if (res.error_code === 409) {
-        wx.navigateTo({url: '/pages/userinfo/main'})
-        wx.showModal({
-          title: '提交失败',
-          content: '请先绑定手机号!',
-          confirmText: '去绑定',
-          cancelText: '取消',
-          showCancel: true,
-          success: function (res) {
-            if (res.confirm) {
-              wx.navigateTo({url: '/pages/userinfo/main'})
-            }
-          }
-        })
-      }
-
       this.order_no = res.data.order_no
       if (val.pay_type === '1') {
         // 微信支付
@@ -174,6 +144,69 @@ export default {
             }
           }
         })
+      }
+    },
+    async formSubmit (e) {
+      const val = e.target.value
+      if (!val.station_id) {
+        return wx.showToast({
+          title: '请选择正确的驿站',
+          duration: 5000
+        })
+      }
+      const payCreateParmas = {
+        pay_type: val.pay_type,
+        station_id: val.station_id,
+        combo_bike: this.selectCombo
+      }
+      const res = await api.payCreate.post(payCreateParmas).toPromise()
+      store.commit('clearShop')
+      if (res.error_code === 409) {
+        // wx.navigateTo({url: '/pages/userinfo/main'})
+        wx.showModal({
+          title: '提交失败',
+          content: '请先绑定手机号!',
+          confirmText: '去绑定',
+          cancelText: '取消',
+          showCancel: true,
+          success: function (res) {
+            if (res.confirm) {
+              wx.navigateTo({url: '/pages/userinfo/main'})
+            }
+          }
+        })
+        return
+      }
+
+      if (val.pay_type === '1') {
+        wx.showModal({
+          title: `支付押金 ￥${res.data.money}`,
+          content: '',
+          confirmColor: '#0099FF',
+          confirmText: '确定支付',
+          cancelText: '返回',
+          showCancel: true,
+          success: (ret) => {
+            if (ret.confirm) {
+              this.payOrder(res, val)
+            } else {
+              wx.showModal({
+                content: '订单创建成功, 请去我的订单中的待付押金中支付',
+                showCancel: false,
+                success: (res) => {
+                  if (res.confirm) {
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                    this.hideTabBarRedDot({index: 1})
+                  }
+                }
+              })
+            }
+          }
+        })
+      } else {
+        this.payOrder(res, val)
       }
     },
     hideTabBarRedDot () {

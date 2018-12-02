@@ -68,6 +68,14 @@ const store = new Vuex.Store({
     addCarToShop (state, {id, data}) {
       state.list = this.state.list.map(item => {
         if (item.id === id) {
+          if (item.car_list.filter(car => car.id === data.id).length > 0) {
+            wx.showToast({
+              title: `不能重复添加相同车辆`,
+              icon: 'none',
+              duration: 5000
+            })
+            return item
+          }
           item = { ...item, car_list: item.car_list.concat([data]) }
         }
         return item

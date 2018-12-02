@@ -1,12 +1,12 @@
 <template>
 <div>
   <div class="weui-panel weui-panel_access">
-    <navigator url="/pages/userinfo/main" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <navigator url="/pages/userinfo/main" class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">
       <div class="weui-media-box__hd weui-media-box__hd_in-appmsg">
          <!-- :src="userInfo.avatarUrl||'/resource/images/dingdan.jpg'" -->
         <image class="weui-media-box__thumb" :src="userInfo.avatarUrl||'/resource/images/avatarurl.jpg'" />
       </div>
-       <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+       <div class="weui-media-box__bd weui-media-box__bd_in-appmsg weui-cell__ft_in-access">
           <div class="weui-media-box__title">{{userInfo.nickName || '去设置基本信息'}}</div>
           <div class="weui-media-box__desc">{{user.phone}}</div>
         </div>

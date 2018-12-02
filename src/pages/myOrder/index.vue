@@ -307,7 +307,6 @@ export default {
     async payDeposit (payInfo) {
       if (payInfo.deposit_type === 1) {
         // 押金订单支付接口
-        console.log(payInfo)
         const orderRet = await api.payOrder.post({
           order_no: payInfo.deposit_order_no
         }).toPromise()
@@ -359,10 +358,12 @@ export default {
           duration: 5000
         })
       }
+
       // 租金订单创建接口
       const ret = await api.payRent.post({
         order_sn: payInfo.deposit_order_no,
         pay_type: payInfo.pay_type + 1,
+        redpackets_id: this.redEnvelope[payInfo.redpackets_index] ? this.redEnvelope[payInfo.redpackets_index].id : 0,
         station_id: this.stations[payInfo.station_id].id
       }).toPromise()
 

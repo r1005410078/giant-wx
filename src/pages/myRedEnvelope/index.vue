@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="weui-panel weui-panel_access">
-      <div class="weui-panel__bd">
+      <div class="weui-panel__bd ">
         <div v-for="item in data" :key="item.id" class="weui-media-box weui-media-box_text">
           <div class="weui-media-box__title weui-media-box__title_in-text ">红包金额 <span class="money">￥{{item.money}}</span></div>
           <div class="weui-media-box__desc"></div>

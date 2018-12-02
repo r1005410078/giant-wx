@@ -5,7 +5,7 @@
         <div class="weui-media-box__image">
           <image class="weui-media-box__thumb" :src="item.cover_img" />
         </div>
-        <div class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</div>
+        <div class="weui-media-box__title weui-media-box__title_in-text weui-cell__ft_in-access">{{item.title}}</div>
       </div>
     </div>
   </div>

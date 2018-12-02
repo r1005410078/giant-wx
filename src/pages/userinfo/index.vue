@@ -15,7 +15,7 @@
           </div>
           <div class="weui-cell__bd">
             <input @input="onIDCardChange" :value="id_card" class="weui-input" placeholder="请输入身份证"/>
-            <span class="id-card">填写身份可享受免费保险</span>
+            <span class="id-card">填写身份证号码可享受免费户外保险一份</span>
           </div>
         </div>
         <div class="weui-cell weui-cell_input weui-cell_vcode">

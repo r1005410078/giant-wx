@@ -9,7 +9,7 @@
         <div class="weui-media-box__desc">
           <!--  v-show="comboInfo.shop_count" -->
           <p v-for="val in comboInfo.interval" :key="val.start_time">
-            <span class="price">￥{{val.money}}</span> 收费区间：{{val.start_time}}分钟 至 {{val.end_time < 9999 ? val.end_time + '分钟' : '∞' }}
+            <span class="price">￥{{val.money}}</span> 收费区间：{{val.start_time}}分钟 至 {{val.end_time < 9999 ? val.end_time + '分钟' : '9小时' }}
           </p>
           <navigator :url="'/pages/selectvehicle/main?id='+comboInfo.id" class="sao-yi-sao">
             <image class="sao-yi-sao-image" src="/resource/images/saoyisao.png" />

@@ -6,7 +6,7 @@
             <image class="weui-media-box__thumb" :src="item.cover_img" />
         </div>
         <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <div @click="skipDetail(item.content)" class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</div>
+            <div @click="skipDetail(item.content)" class="weui-media-box__title weui-media-box__title_in-text weui-cell__ft_in-access">{{item.title}}</div>
             <div class="weui-media-box__info">
               <div @click="skipWebview(item.route[0])" class="weui-media-box__info__meta">
                 <image class="gen-wo-zou" src="/resource/images/zxc.png" />
@@ -61,7 +61,7 @@ export default {
     margin-top: 5px;
   }
   .weui-media-box {
-    padding:5px;
+    padding:15px;
     position:relative;
     border-bottom:1px solid #eee;
   }
