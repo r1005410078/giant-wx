@@ -1,0 +1,35 @@
+<template name="28d07259">
+  <view class="_div data-v-1fe12a0c page__bd">
+    <view class="_div data-v-1fe12a0c weui-cells weui-cells_after-title">
+      <view class="_div data-v-1fe12a0c weui-cell weui-cell_input">
+        <view class="_div data-v-1fe12a0c weui-cell__hd">
+          <view class="_div data-v-1fe12a0c weui-label">真实姓名</view>
+        </view>
+        <view class="_div data-v-1fe12a0c weui-cell__bd"><input bindinput="handleProxy" value="{{name}}" class="_input data-v-1fe12a0c weui-input" placeholder="请输入姓名" data-eventid="{{'0'}}" data-comkey="{{$k}}" /></view>
+      </view>
+      <view class="_div data-v-1fe12a0c weui-cell weui-cell_input">
+        <view class="_div data-v-1fe12a0c weui-cell__hd">
+          <view class="_div data-v-1fe12a0c weui-label">身份证</view>
+        </view>
+        <view class="_div data-v-1fe12a0c weui-cell__bd"><input bindinput="handleProxy" value="{{id_card}}" class="_input data-v-1fe12a0c weui-input" placeholder="请输入身份证" data-eventid="{{'1'}}" data-comkey="{{$k}}" /> <label class="_span data-v-1fe12a0c id-card">填写身份证号码可享受免费户外保险一份</label></view>
+      </view>
+      <view class="_div data-v-1fe12a0c weui-cell weui-cell_input weui-cell_vcode">
+        <view class="_div data-v-1fe12a0c weui-cell__hd">
+          <view class="_div data-v-1fe12a0c weui-label">手机号</view>
+        </view>
+        <view class="_div data-v-1fe12a0c weui-cell__bd"><input bindinput="handleProxy" value="{{phone}}" type="number" class="_input data-v-1fe12a0c weui-input" placeholder="请输入手机号" data-eventid="{{'2'}}" data-comkey="{{$k}}" /></view>
+        <view class="_div data-v-1fe12a0c weui-cell__ft">
+          <view class="_div data-v-1fe12a0c weui-vcode-btn" bindtap="handleProxy" wx:if="{{code === 0}}" data-eventid="{{'3'}}" data-comkey="{{$k}}">获取验证码</view>
+          <view class="_div data-v-1fe12a0c weui-vcode-btn" wx:if="{{code > 0}}">{{code}}</view>
+          </view>
+        </view>
+        <view class="_div data-v-1fe12a0c weui-cell weui-cell_input weui-cell_vcode">
+          <view class="_div data-v-1fe12a0c weui-cell__hd">
+            <view class="_div data-v-1fe12a0c weui-label">手机验证码</view>
+          </view>
+          <view class="_div data-v-1fe12a0c weui-cell__bd"><input bindinput="handleProxy" type="number" class="_input data-v-1fe12a0c weui-input" placeholder="请输入手机验证码" data-eventid="{{'4'}}" data-comkey="{{$k}}" /></view>
+        </view>
+      </view>
+      <view class="_div data-v-1fe12a0c weui-btn-area"><button class="_button data-v-1fe12a0c weui-btn" type="primary" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">保存</button></view>
+    </view>
+</template>

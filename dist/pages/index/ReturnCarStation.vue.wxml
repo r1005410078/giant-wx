@@ -1,0 +1,18 @@
+<template name="d7fc22b8">
+  <view class="_div data-v-1e944e0b weui-panel">
+    <view wx:key="index" key="{{index}}" class="_div data-v-1e944e0b weui-panel__bd" wx:for="{{data}}" wx:for-index="index" wx:for-item="item">
+      <view class="_div data-v-1e944e0b weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view bindtap="handleProxy" class="_div data-v-1e944e0b weui-media-box__hd weui-media-box__hd_in-appmsg" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
+          <image class="_image data-v-1e944e0b weui-media-box__thumb" src="{{item.cover_img}}"></image>
+        </view>
+        <view class="_div data-v-1e944e0b weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view bindtap="handleProxy" class="_div data-v-1e944e0b weui-media-box__title weui-media-box__title_in-text weui-cell__ft_in-access" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}">{{item.name}}</view>
+          <view class="_div data-v-1e944e0b weui-media-box__desc">地址：{{item.address.address}} </view>
+          <view class="_div data-v-1e944e0b weui-media-box__info" bindtap="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}">
+            <view class="_div data-v-1e944e0b weui-media-box__info__meta"><label hidden="{{!(!item.distance)}}" class="_span data-v-1e944e0b">跟我走</label> <label hidden="{{!(item.distance)}}" class="_span data-v-1e944e0b">跟我走,距离您({{ item.distance }}公里)</label></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

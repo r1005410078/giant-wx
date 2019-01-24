@@ -216,6 +216,30 @@ export default {
     }
   }
 }
+// this.selectCombo.forEach((item, index) => {
+//   const id = item.combo_id
+//   for (let l = 0; l < store.state.list.length; l++) {
+//     const it = store.state.list[l];
+//     if (id === it.id) {
+//       const bike_count = it.bike_count
+//       const list = item.bike_list
+//       const num = list.length / bike_count
+//       if (num > 1) {
+//         for (let index = 0; index < num; index++) {
+//           const bike_list = []
+//           for (let j = 0; j < bike_count; j++) {
+//             bike_list.push(list.pop())
+//           }
+//           this.selectCombo.push({
+//             bike_list,
+//             combo_id: it.id
+//           })
+//         }
+//       }
+//       break
+//     }
+//   }
+// });
 </script>
 
 <style scoped>
@@ -224,3 +248,5 @@ export default {
     right: 15px;
   }
 </style>
+
+

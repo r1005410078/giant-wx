@@ -82,7 +82,7 @@
                         {{pays[item.pay_type]}}
                       </div>
                     </div>
-                    <div class="weui-form-preview__item" @click="selectPost(item)">
+                    <div class="weui-form-preview__item" @click="showPicker(item)">
                       <div class="weui-form-preview__label">还车驿站</div>
                       <div class="weui-form-preview__value select-value weui-cell__ft_in-access">
                         {{stations[item.station_id] ? stations[item.station_id].name : '请选择驿站'}}
@@ -150,15 +150,21 @@
         </div>
       </div>
     </div>
+    <mpvue-picker ref="mpvuePicker" :pickerValueDefault="pickerValueDefault" @onChange="onChange" @onConfirm="onConfirm" @onCancel="onCancel" :pickerValueArray="pickerValue"></mpvue-picker>
   </div>
 </template>
 
 <script>
+import mpvuePicker from '@/components/mpvuePicker'
 import {MillisecondToDate} from '../../utils'
 import store from '../index/store'
 import api from '../getApi'
 const sliderWidth = 96 // 需要设置slider的宽度，用于计算中间位置
+
 export default {
+  components: {
+    mpvuePicker
+  },
   data () {
     return {
       pays: ['微信', '支付宝', '现金'],
@@ -166,7 +172,10 @@ export default {
       tabsData0: [],
       tabsData1: [],
       tabsData2: [],
+      payInfo: {},
       stations: [],
+      pickerValue: [1],
+      pickerValueDefault: [1],
       redEnvelope: [], // 红包
       activeIndex: 0,
       sliderOffset: 0,
@@ -192,11 +201,36 @@ export default {
       store.commit('saveRedEnvelope', this.redEnvelope)
     })
     this.stations = store.state.stations
-
+    this.pickerValue = this.stations.map((item, i) => ({
+      label: item.name,
+      value: i,
+    }))
     // 加载订单
     this.loadOrder()
   },
   methods: {
+    showPicker (payInfo) {
+      this.payInfo = payInfo
+      this.$refs.mpvuePicker.show()
+    },
+    onConfirm (e) {
+      console.log(e)
+    },
+    onChange (e) {
+      console.log(this.payInfo )
+      this.tabsData1 = this.tabsData1.map(info => {
+        if (this.payInfo.deposit_order_no === info.deposit_order_no) {
+          return {
+            ...info,
+            station_id: e.value[0]
+          }
+        }
+        return info
+      })
+    },
+    onCancel (e) {
+      console.log(e)
+    },
     millisecondToDate (timer) {
       return MillisecondToDate(timer)
     },

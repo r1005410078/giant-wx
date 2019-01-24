@@ -1,0 +1,20 @@
+<template name="dad54c36">
+  <view class="_div data-v-2be494de page">
+    <view class="_div data-v-2be494de home-image" hidden="{{!(!!miao)}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <image mode="aspectFit" src="{{homeImageUrl}}" class="_image data-v-2be494de"></image>
+      <view class="_div data-v-2be494de tiaoguo">{{miao}}s<label style="margin-left: 0px; margin-right: 5px;" class="_span data-v-2be494de">|</label><label class="_span data-v-2be494de">跳过</label></view>
+    </view>
+    <view class="_div data-v-2be494de weui-msg" hidden="{{!(showLogin)}}">
+      <view class="_div data-v-2be494de weui-msg__icon-area">
+        <icon type="success" size="93" class="_icon data-v-2be494de"></icon>
+      </view>
+      <view class="_div data-v-2be494de weui-msg__text-area">
+        <view class="_div data-v-2be494de weui-msg__title">登陆成功</view>
+        <view class="_div data-v-2be494de weui-msg__desc">当前网络安全， 确认微信授权</view>
+      </view>
+      <view class="_div data-v-2be494de weui-msg__opr-area">
+        <view class="_div data-v-2be494de weui-btn-area"><button open-type="getUserInfo" bindtap="handleProxy" class="_button data-v-2be494de weui-btn" data-eventid="{{'1'}}" data-comkey="{{$k}}">允许</button></view>
+      </view>
+    </view>
+  </view>
+</template>

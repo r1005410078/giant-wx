@@ -1,0 +1,26 @@
+<template name="3be63cbe">
+  <view class="_div data-v-749ac570 weui-panel__bd">
+    <view class="_div data-v-749ac570 weui-media-box weui-media-box_appmsg">
+      <view bindtap="handleProxy" class="_div data-v-749ac570 weui-media-box__hd weui-media-box__hd_in-appmsg input-weui-media-box__thumb" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <image class="_image data-v-749ac570 weui-media-box__thumb" src="{{comboInfo.cover_img}}"></image>
+      </view>
+      <view class="_div data-v-749ac570 weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view bindtap="handleProxy" class="_div data-v-749ac570 weui-media-box__title weui-media-box__title_in-text" data-eventid="{{'1'}}" data-comkey="{{$k}}">{{comboInfo.name}}</view>
+        <view class="_div data-v-749ac570 weui-media-box__desc">
+          <view wx:key="val.start_time" key="{{val.start_time}}" wx:for="{{comboInfo.interval}}" wx:for-index="index" wx:for-item="val" class="_p data-v-749ac570"><label class="_span data-v-749ac570 price">￥{{val.money}}</label> 收费区间：{{val.start_time}}分钟 至 {{val.end_time < 9999 ? val.end_time + '分钟' : '9小时' }}
+          </view>
+          <navigator url="{{'/pages/selectvehicle/main?id='+comboInfo.id}}" class="_navigator data-v-749ac570 sao-yi-sao">
+            <image class="_image data-v-749ac570 sao-yi-sao-image" src="/resource/images/saoyisao.png"></image> <label class="_span data-v-749ac570 sao-yi-sao-text weui-cell__ft_in-access">您已选 {{comboInfo.car_list.length}} 辆, 还需选择 {{comboInfo.bike_count * comboInfo.shop_count - comboInfo.car_list.length}} 辆</label>
+          </navigator>
+        </view>
+        <view class="_div data-v-749ac570 weui-media-box__info">
+          <view class="_div data-v-749ac570 weui-media-box__info__meta add-remove">
+            <view class="_div data-v-749ac570 remove" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">-</view>
+            <view class="_div data-v-749ac570 num">{{comboInfo.shop_count || 0}}</view>
+            <view class="_div data-v-749ac570 add" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

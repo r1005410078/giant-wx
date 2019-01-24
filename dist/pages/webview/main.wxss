@@ -1,0 +1,13 @@
+@import "../../common/vendor.wxss";
+
+.text.data-v-2dcb2224 {
+  text-align: center;
+  margin-top: 30rpx;
+}
+._canvas.data-v-2dcb2224 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -300rpx;
+  margin-left: -300rpx;
+}

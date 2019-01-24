@@ -1,0 +1,6 @@
+<template name="6565339e">
+  <view class="_div data-v-cd9fd85c article">
+    <view hidden="{{!(map_name)}}" class="_div data-v-cd9fd85c"><button class="_button data-v-cd9fd85c copy" type="primary" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"> 复制路书号打开百度地图 </button></view>
+    <rich-text class="_div data-v-cd9fd85c ql-editor" nodes="{{article}}"></rich-text>
+  </view>
+</template>

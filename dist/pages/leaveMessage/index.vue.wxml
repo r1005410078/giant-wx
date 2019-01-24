@@ -1,0 +1,31 @@
+<template name="47b7fa20">
+  <form bindsubmit="handleProxy" report-submit="true" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_form data-v-47175191">
+    <view class="_div data-v-47175191 weui-panel__bd">
+      <view class="_div data-v-47175191 weui-cells__title">对这次服务打个分把</view>
+      <view class="_div data-v-47175191 weui-cells weui-cells_after-title">
+        <view class="_div data-v-47175191 weui-cell">
+          <view class="_div data-v-47175191 weui-cell__bd"><label class="_span data-v-47175191 text">小二服务: </label>
+            <view class="_div data-v-47175191 xing-xing" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{xingxing}}" wx:for-index="index" wx:for-item="item">
+              <image src="{{'/resource/images/' + (item > score1 ? 'xx2.png' : 'xx1.png')}}" class="_image data-v-47175191"></image>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-47175191 weui-cell">
+          <view class="_div data-v-47175191 weui-cell__bd"><label class="_span data-v-47175191 text">车辆品质: </label>
+            <view class="_div data-v-47175191 xing-xing" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{xingxing}}" wx:for-index="index" wx:for-item="item">
+              <image src="{{'/resource/images/' + (item > score2 ? 'xx2.png' : 'xx1.png')}}" class="_image data-v-47175191"></image>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-47175191 weui-cell">
+          <view class="_div data-v-47175191 weui-cell__bd"><label class="_span data-v-47175191 text">骑行环境: </label>
+            <view class="_div data-v-47175191 xing-xing" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}" wx:for="{{xingxing}}" wx:for-index="index" wx:for-item="item">
+              <image src="{{'/resource/images/' + (item > score3 ? 'xx2.png' : 'xx1.png')}}" class="_image data-v-47175191"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-47175191 weui-cells__title">请给我们留言评论</view>
+      <view class="_div data-v-47175191 weui-cells weui-cells_after-title">
+        <view class="_div data-v-47175191 weui-cell">
+          <view class="_div data-v-47175191 weui-cell__bd"><textarea name="comment" value="{{comment}}" class="_textarea data-v-47175191 weui-textarea" placeholder="请输入留言" style="height: 5.3em" /></view></view></view> <view class="_div data-v-47175191 weui-btn-area"><button wx:if="{{!comment}}" class="_button data-v-47175191 weui-btn" formType="submit" type="primary">提交</button></view></view></form></template>

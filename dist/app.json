@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/login/main",
+    "pages/index/main",
+    "pages/shopcart/main",
+    "pages/cyclingRecord/main",
+    "pages/my/main",
+    "pages/detection/main",
+    "pages/selectvehicle/main",
+    "pages/myOrder/main",
+    "pages/userinfo/main",
+    "pages/myRedEnvelope/main",
+    "pages/detail/main",
+    "pages/webview/main",
+    "pages/leaveMessage/main",
+    "pages/pay/main"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0099FF",
+    "navigationBarTitleText": "骑行东钱湖",
+    "navigationBarTextStyle": "#FFF"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#3399CC",
+    "list": [
+      {
+        "title": "xxx",
+        "iconPath": "resource/images/首页.png",
+        "selectedIconPath": "resource/images/首页 (1).png",
+        "pagePath": "pages/index/main",
+        "text": "首页"
+      },
+      {
+        "title": "32132",
+        "iconPath": "resource/images/购物车满.png",
+        "selectedIconPath": "resource/images/购物车满 (1).png",
+        "pagePath": "pages/shopcart/main",
+        "text": "购物车"
+      },
+      {
+        "iconPath": "resource/images/发现.png",
+        "selectedIconPath": "resource/images/发现 (1).png",
+        "pagePath": "pages/detection/main",
+        "text": "发现"
+      },
+      {
+        "iconPath": "resource/images/我.png",
+        "selectedIconPath": "resource/images/我 (1).png",
+        "pagePath": "pages/my/main",
+        "text": "我"
+      }
+    ]
+  }
+}

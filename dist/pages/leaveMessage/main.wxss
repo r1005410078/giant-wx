@@ -1,0 +1,15 @@
+@import "../../common/vendor.wxss";
+
+.text.data-v-47175191 {
+  float: left;
+  font-size: 28rpx;
+}
+.xing-xing.data-v-47175191 {
+  float: left;
+  margin-left: 30rpx;
+}
+.xing-xing image.data-v-47175191 {
+  height: 40rpx;
+  width: 40rpx;
+  float: left;
+}

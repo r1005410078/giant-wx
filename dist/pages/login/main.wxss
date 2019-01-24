@@ -1,0 +1,28 @@
+@import "../../common/vendor.wxss";
+
+.home-image.data-v-2be494de {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: #fff;
+}
+.home-image > image.data-v-2be494de {
+  width: 100%;
+  height: 100%;
+}
+.tiaoguo.data-v-2be494de {
+  height: 40rpx;
+  width: 120rpx;
+  line-height: 40rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 24rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  background: rgba(0, 0, 0, 0.3);
+}

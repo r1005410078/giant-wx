@@ -1,0 +1,41 @@
+<template name="4c238268">
+  <view class="_div data-v-66a4166d">
+    <view class="_div data-v-66a4166d weui-panel weui-panel_access">
+      <navigator url="/pages/userinfo/main" class="_navigator data-v-66a4166d weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">
+        <view class="_div data-v-66a4166d weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="_image data-v-66a4166d weui-media-box__thumb" src="{{userInfo.avatarUrl||'/resource/images/avatarurl.jpg'}}"></image>
+        </view>
+        <view class="_div data-v-66a4166d weui-media-box__bd weui-media-box__bd_in-appmsg weui-cell__ft_in-access">
+          <view class="_div data-v-66a4166d weui-media-box__title">{{userInfo.nickName || '去设置基本信息'}}</view>
+          <view class="_div data-v-66a4166d weui-media-box__desc">{{user.phone}}</view>
+        </view>
+      </navigator>
+    </view>
+    <view class="_div data-v-66a4166d weui-panel">
+      <view class="_div data-v-66a4166d weui-panel__bd">
+        <view class="_div data-v-66a4166d weui-media-box weui-media-box_small-appmsg">
+          <view class="_div data-v-66a4166d weui-cells weui-cells_in-small-appmsg">
+            <navigator url="/pages/myOrder/main" class="_navigator data-v-66a4166d weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="_div data-v-66a4166d weui-cell__hd">
+                <image src="/resource/images/dingdan.png" style="width: 20px;height: 20px;margin-right: 5px" class="_image data-v-66a4166d"></image>
+              </view>
+              <view class="_div data-v-66a4166d weui-cell__bd weui-cell_primary">
+                <view class="_div data-v-66a4166d">我的订单</view>
+              </view>
+              <view class="_div data-v-66a4166d weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="/pages/myRedEnvelope/main" class="_navigator data-v-66a4166d weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="_div data-v-66a4166d weui-cell__hd">
+                <image src="/resource/images/hongbao.png" style="width: 20px;height: 20px;margin-right: 5px" class="_image data-v-66a4166d"></image>
+              </view>
+              <view class="_div data-v-66a4166d weui-cell__bd weui-cell_primary">
+                <view class="_div data-v-66a4166d">我的红包</view>
+              </view>
+              <view class="_div data-v-66a4166d weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -187,3 +187,14 @@ export class LeaveMessage extends Http {
     return this
   }
 }
+
+// 租金订单创建接口
+export class Welcome extends Http {
+  url = '/minapp/advert/welcome'
+  success (next) {
+    this.result.then(res => {
+      next(res.data)
+    })
+    return this
+  }
+}

@@ -42,7 +42,6 @@ const store = new Vuex.Store({
         }
       })
       wx.hideTabBarRedDot({index: 1})
-      console.log('隐藏')
     },
     addShop (state, {id, shopCount}) {
       let sum = 0

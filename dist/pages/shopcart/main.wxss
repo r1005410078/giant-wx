@@ -1,0 +1,31 @@
+@import "../../common/vendor.wxss";
+
+.tab-footer.data-v-2ee7ba52 {
+  height: 90rpx;
+  background: #FFF;
+}
+.pice.data-v-2ee7ba52 {
+  color: #CC3333;
+  font-size: 44rpx;
+  line-height: 90rpx;
+  text-indent: 20rpx;
+}
+.jie-suan.data-v-2ee7ba52 {
+  width: 240rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  color: #FFF;
+  font-weight: 700;
+  transition: 0.2s all;
+  background: #CC3366;
+  float: right;
+}
+.jie-suan.data-v-2ee7ba52:active {
+  background: #CC6666;
+}
+.zxc.data-v-2ee7ba52 {
+  height: 40rpx;
+  width: 40rpx;
+  vertical-align: middle;
+}

@@ -1,0 +1,16 @@
+<template name="ff710de0">
+  <view class="_div data-v-a1eeefee weui-panel__bd">
+    <view wx:key="index" key="{{index}}" class="_div data-v-a1eeefee weui-media-box weui-media-box_text" wx:for="{{data}}" wx:for-index="index" wx:for-item="item">
+      <view class="_div data-v-a1eeefee weui-media-box__image">
+        <image class="_image data-v-a1eeefee weui-media-box__thumb" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533060139438&di=8fb519b717143b00f9b7c4de6a13e1b6&imgtype=0&src=http%3A%2F%2Fs16.sinaimg.cn%2Fmw690%2F001tcIsrgy6V5NOQAF19f%26690"></image>
+      </view>
+      <view class="_div data-v-a1eeefee weui-media-box__title weui-media-box__title_in-text">千岛湖一圈</view>
+      <view class="_div data-v-a1eeefee weui-media-box__desc">骑自行车有什么禁忌?当下骑自行车不再是简单的出行，作为一个代步工具使用了，而更多的是作为一种休闲锻炼工具使用，很多人饭后休闲都会约上三五个朋友去郊外骑骑自行车，那么骑自行车有什么禁忌呢，骑自行车需要注意什么呢?</view>
+      <view class="_view data-v-a1eeefee weui-media-box__info">
+        <view class="_view data-v-a1eeefee weui-media-box__info__meta">用时 8h</view>
+        <view class="_view data-v-a1eeefee weui-media-box__info__meta">公里 27km</view>
+        <view class="_view data-v-a1eeefee weui-media-box__info__meta weui-media-box__info__meta_extra">500col</view>
+      </view>
+    </view>
+  </view>
+</template>

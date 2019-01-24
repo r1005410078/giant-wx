@@ -1,0 +1,15 @@
+<template name="141c9c6e">
+  <view class="_div data-v-1b724982 weui-panel">
+    <view wx:key="index" key="{{index}}" class="_div data-v-1b724982 weui-panel__bd" wx:for="{{data}}" wx:for-index="index" wx:for-item="item">
+      <view class="_div data-v-1b724982 weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view bindtap="handleProxy" class="_div data-v-1b724982 weui-media-box__hd weui-media-box__hd_in-appmsg" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
+          <image class="_image data-v-1b724982 weui-media-box__thumb" src="{{item.cover_img}}"></image>
+        </view>
+        <view class="_div data-v-1b724982 weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view bindtap="handleProxy" class="_div data-v-1b724982 weui-media-box__title weui-media-box__title_in-text weui-cell__ft_in-access" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}">{{item.title}}</view>
+          <view class="_div data-v-1b724982 weui-media-box__desc">{{item.sub_title}} </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

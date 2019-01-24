@@ -1,0 +1,12 @@
+<template name="1e66efb1">
+  <view class="_div data-v-4d27feaa">
+    <view class="_div data-v-4d27feaa weui-panel weui-panel_access">
+      <view class="_div data-v-4d27feaa weui-panel__bd ">
+        <view wx:key="item.id" key="{{item.id}}" class="_div data-v-4d27feaa weui-media-box weui-media-box_text" wx:for="{{data}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-4d27feaa weui-media-box__title weui-media-box__title_in-text ">红包金额 <label class="_span data-v-4d27feaa money">￥{{item.money}}</label></view>
+          <view class="_div data-v-4d27feaa weui-media-box__desc"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

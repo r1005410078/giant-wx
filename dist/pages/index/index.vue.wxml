@@ -1,0 +1,30 @@
+<import src="/components/inputPanel.vue.wxml" />
+<import src="/pages/index/RouteSuggestion.vue.wxml" />
+<import src="/pages/index/ReturnCarStation.vue.wxml" />
+<import src="/pages/index/Precautions.vue.wxml" /><template name="ec76b7e4">
+  <view class="_div data-v-2313df07 page" style=" {{('height:' + (scrollHeight + 'px') + ';')}}">
+    <view class="_div data-v-2313df07 weui-tab">
+      <view class="_div data-v-2313df07 weui-navbar" id="navbar">
+        <view id="{{index}}" wx:key="index" key="{{index}}" class="_div data-v-2313df07 weui-navbar__item {{[activeIndex == index ? 'weui-bar__item_on' : '']}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{tabs}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-2313df07 weui-navbar__title">{{item}}</view>
+        </view>
+        <view class="_div data-v-2313df07 weui-navbar__slider" style=" {{(  'left:' +  (sliderLeft + 'px') +  ';' +  'transform:' +  ('translateX(' + sliderOffset + 'px)') +  ';')}}"></view>
+      </view>
+      <view scroll-y class="_div data-v-2313df07 weui-tab__panel" style=" {{('height:' + (scrollHeight + 'px') + ';')}}">
+        <view class="_div data-v-2313df07 weui-tab__content" hidden="{{!(activeIndex == 0)}}">
+          <swiper style="height: 160px" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="_swiper data-v-2313df07">
+            <block wx:key="index" key="{{index}}" wx:for="{{imgUrls}}" wx:for-index="index" wx:for-item="item">
+              <swiper-item bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" class="_swiper-item data-v-2313df07">
+                <image style="width: 100%; height: 160px" mode="{{aspectFit}}" src="{{item.cover_img}}" class="_image data-v-2313df07"></image>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view wx:key="index" key="{{index}}" wx:for="{{comboList}}" wx:for-index="index" wx:for-item="item" class="_div data-v-2313df07"><template data="{{...$root[$kk+'1-'+index], $root}}" is="3be63cbe"></template></view>
+        </view>
+        <view class="_div data-v-2313df07 weui-tab__content" hidden="{{!(activeIndex == 1)}}"><template data="{{...$root[$kk+'2'], $root}}" is="141c9c6e"></template></view>
+        <view class="_div data-v-2313df07 weui-tab__content" hidden="{{!(activeIndex == 2)}}"><template data="{{...$root[$kk+'3'], $root}}" is="d7fc22b8"></template></view>
+        <view class="_view data-v-2313df07 weui-tab__content" hidden="{{!(activeIndex == 3)}}"><template data="{{...$root[$kk+'4'], $root}}" is="555461a7"></template></view>
+      </view>
+    </view>
+  </view>
+</template>

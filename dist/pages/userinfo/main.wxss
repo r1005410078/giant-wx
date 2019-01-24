@@ -1,0 +1,8 @@
+@import "../../common/vendor.wxss";
+
+.weui-btn-area.data-v-1fe12a0c {
+  margin-top: 70rpx;
+}
+.id-card.data-v-1fe12a0c {
+  font-size: 24rpx;
+}

@@ -15,7 +15,7 @@
         </div>
         <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <div class="weui-media-box__info" @click="remove(comboItem.id, item.id)">
-            <image class="weui-media-box__info__meta" src="/resource/images/dels.png" />
+            <image class="weui-media-box__info__meta" src="/resource/images/dels.jpg" />
           </div>
           <div>
             <div class="weui-media-box__title">车辆编号: {{item.bike_no}}</div>

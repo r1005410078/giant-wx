@@ -1,0 +1,28 @@
+@import "../../common/vendor.wxss";
+
+.sao-yi-sao.data-v-83997536 {
+  float: right;
+}
+.sao-yi-sao-image.data-v-83997536 {
+  height: 44rpx;
+  width: 50rpx;
+}
+.sao-yi-sao-text.data-v-83997536 {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  line-height: 40rpx;
+  color: #666;
+  position: relative;
+  top: -10rpx;
+}
+.weui-media-box__info.data-v-83997536 {
+  width: 80rpx;
+  float: right;
+}
+.weui-media-box__info__meta.data-v-83997536 {
+  height: 60rpx;
+  width: 60rpx;
+  float: right;
+  position: relative;
+  left: 25rpx;
+}

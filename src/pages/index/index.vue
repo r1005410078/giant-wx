@@ -8,8 +8,23 @@
         <div class="weui-navbar__slider" v-bind:style="{left: sliderLeft + 'px', transform: 'translateX(' + sliderOffset + 'px)'}"></div>
       </div>
       <div scroll-y class="weui-tab__panel" v-bind:style="{height: scrollHeight + 'px'}">
-        <div v-for="(item, index) in comboList" :key="index"  class="weui-tab__content" v-show="activeIndex == 0">
-          <inputPanel :comboInfo="item" />
+        <div class="weui-tab__content" v-show="activeIndex == 0">
+          <swiper
+            style="height: 160px"
+            :indicator-dots="indicatorDots"
+            :autoplay="autoplay"
+            :interval="interval"
+            :duration="duration"
+          >
+            <block v-for="(item, index) in imgUrls" :key="index">
+              <swiper-item @click="skipDetail(item.content)">
+                <image style="width: 100%; height: 160px" :mode="aspectFit" :src="item.cover_img" />
+              </swiper-item>
+            </block>
+          </swiper>
+          <div v-for="(item, index) in comboList" :key="index" >
+            <inputPanel :comboInfo="item" />
+          </div>
         </div>
         <div class="weui-tab__content" v-show="activeIndex == 1">
           <RouteSuggestion />
@@ -33,12 +48,22 @@ import inputPanel from '@/components/inputPanel'
 import RouteSuggestion from './RouteSuggestion'
 import ReturnCarStation from './ReturnCarStation'
 import Precautions from './Precautions'
+import detailStore from '../detail/store'
 
 const sliderWidth = 96 // 需要设置slider的宽度，用于计算中间位置
 export default {
   data () {
     return {
-      tabs: ['租车套餐', '路线推荐', '还车站点', '注意事项'],
+      imgUrls: [
+        'http://pic1.nipic.com/2008-12-30/200812308231244_2.jpg',
+        'http://pic2.ooopic.com/12/40/58/18bOOOPIC9c.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+      ],
+      indicatorDots: true,
+      autoplay: true,
+      interval: 5000,
+      duration: 1000,
+      tabs: ['选车租车', '路线推荐', '环湖驿站', '流程须知'],
       activeIndex: 0,
       sliderOffset: 0,
       sliderLeft: 0,
@@ -65,6 +90,13 @@ export default {
         this.scrollHeight = res.windowHeight
       }
     })
+    api.aarticleList.post({
+      page: 1,
+      page_size: 99,
+      type: 4
+    }).success(res => {
+      this.imgUrls = res.data
+    })
   },
 
   components: {
@@ -76,6 +108,12 @@ export default {
   },
 
   methods: {
+    skipDetail (content) {
+      detailStore.commit('setDetail', content)
+      wx.navigateTo({
+        url: '/pages/detail/main'
+      })
+    },
     tabClick: function (e) {
       this.sliderOffset = e.currentTarget.offsetLeft
       this.activeIndex = e.currentTarget.id
@@ -141,4 +179,5 @@ export default {
 .weui-navbar  {
   background: #fff;
 }
+
 </style>

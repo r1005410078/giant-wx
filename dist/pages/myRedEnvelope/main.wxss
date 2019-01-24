@@ -1,0 +1,7 @@
+@import "../../common/vendor.wxss";
+
+.money.data-v-4d27feaa {
+  color: #CC3333;
+  font-size: 44rpx;
+  font-weight: 700;
+}

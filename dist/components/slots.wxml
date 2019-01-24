@@ -1,0 +1,7 @@
+<import src="/components/inputPanel.vue.wxml" />
+<import src="/pages/index/RouteSuggestion.vue.wxml" />
+<import src="/pages/index/ReturnCarStation.vue.wxml" />
+<import src="/pages/index/Precautions.vue.wxml" />
+<import src="/components/card.vue.wxml" />
+<import src="/components/inputPanel.vue.wxml" />
+<import src="/components/mpvuePicker.vue.wxml" />

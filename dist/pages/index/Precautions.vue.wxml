@@ -1,0 +1,12 @@
+<template name="555461a7">
+  <view class="_div data-v-14bfbde0 precautions">
+    <view class="_div data-v-14bfbde0 weui-panel" wx:key="index" key="{{index}}" wx:for="{{data}}" wx:for-index="index" wx:for-item="item">
+      <view bindtap="handleProxy" class="_div data-v-14bfbde0 weui-media-box weui-media-box_text" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
+        <view class="_div data-v-14bfbde0 weui-media-box__image">
+          <image class="_image data-v-14bfbde0 weui-media-box__thumb" src="{{item.cover_img}}"></image>
+        </view>
+        <view class="_div data-v-14bfbde0 weui-media-box__title weui-media-box__title_in-text weui-cell__ft_in-access">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+</template>
