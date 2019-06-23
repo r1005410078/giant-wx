@@ -1,4 +1,4 @@
-<template name="3be63cbe">
+<template name="6ef33082">
   <view class="_div data-v-749ac570 weui-panel__bd">
     <view class="_div data-v-749ac570 weui-media-box weui-media-box_appmsg">
       <view bindtap="handleProxy" class="_div data-v-749ac570 weui-media-box__hd weui-media-box__hd_in-appmsg input-weui-media-box__thumb" data-eventid="{{'0'}}" data-comkey="{{$k}}">

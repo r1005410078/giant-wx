@@ -4,18 +4,19 @@
       <div v-for="(item, index) in data" :key="index">
         <inputPanel :comboInfo="item" />
       </div>
+      <div class="tab-footer">
+        <div v-show="isPay" class='jie-suan' @click="Pay">
+            支付押金
+        </div>
+        <div v-show="!isPay" class='jie-suan' style="background: #666;">
+          未选满车辆
+        </div>
+        <div class="pice">
+          <!-- ￥0 -->
+        </div>
+      </div>
     </scroll-view>
-    <div class="tab-footer">
-      <div v-show="isPay" class='jie-suan' @click="Pay">
-        支付押金
-      </div>
-      <div v-show="!isPay" class='jie-suan' style="background: #666;">
-        未选满车辆
-      </div>
-      <div class="pice">
-        <!-- ￥0 -->
-      </div>
-    </div>
+    
   </div>
 </template>
 

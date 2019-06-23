@@ -2,14 +2,14 @@ require("../../common/manifest.js");
 require("../../common/vendor.js");
 global.webpackJsonp([6],{
 
-/***/ 214:
+/***/ 213:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(214);
 
 
 
@@ -18,16 +18,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 215:
+/***/ 214:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_83997536_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_83997536_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(217);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(216)
+  __webpack_require__(215)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -72,19 +72,20 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 216:
+/***/ 215:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 217:
+/***/ 216:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_store__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getApi__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globalStore__ = __webpack_require__(29);
 //
 //
 //
@@ -114,6 +115,18 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -137,6 +150,16 @@ if (false) {(function () {
         return _this.id === item.id;
       });
       return item[0];
+    },
+    data: function data() {
+      return __WEBPACK_IMPORTED_MODULE_2__globalStore__["a" /* default */].state.combo.list.filter(function (item) {
+        return item.shop_count > 0;
+      });
+    },
+    isPay: function isPay() {
+      return this.data.length > 0 && !this.data.some(function (item) {
+        return !(item.car_list && item.car_list.length === item.shop_count * item.bike_count);
+      });
     }
   },
   onLoad: function onLoad(options) {
@@ -144,6 +167,17 @@ if (false) {(function () {
   },
 
   methods: {
+    Pay: function Pay() {
+      // store.commit('clearShop')
+      if (this.isPay) {
+        wx.navigateTo({ url: '/pages/pay/main' });
+      } else {
+        wx.showToast({
+          title: '车辆未选满！',
+          duration: 5000
+        });
+      }
+    },
     add: function add(id) {
       wx.scanCode({
         success: function success(res) {
@@ -172,7 +206,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 218:
+/***/ 217:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -181,7 +215,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "weui-panel weui-panel_access"
   }, [_c('view', {
     staticClass: "weui-panel__hd"
-  }, [_c('span', [_vm._v("套餐名字: " + _vm._s(_vm.comboItem.name) + ", ")]), _vm._v(" "), _c('span', [_vm._v("还需添加 " + _vm._s(_vm.count) + " 辆车")]), _vm._v(" "), _c('div', {
+  }, [_c('span', [_vm._v(_vm._s(_vm.comboItem.name) + " ")]), _vm._v(" "), _c('span', [_vm._v("还需添加 " + _vm._s(_vm.count) + " 辆车")]), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -217,6 +251,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "weui-media-box__bd weui-media-box__bd_in-appmsg"
     }, [_c('div', {
       staticClass: "weui-media-box__info",
+      staticStyle: {
+        "color": "red"
+      },
       attrs: {
         "eventid": '1-' + index
       },
@@ -225,17 +262,41 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.remove(_vm.comboItem.id, item.id)
         }
       }
-    }, [_c('image', {
-      staticClass: "weui-media-box__info__meta",
-      attrs: {
-        "src": "/resource/images/dels.jpg"
-      }
-    })]), _vm._v(" "), _c('div', [_c('div', {
+    }, [_vm._v("\n          删除\n        ")]), _vm._v(" "), _c('div', [_c('div', {
       staticClass: "weui-media-box__title"
     }, [_vm._v("车辆编号: " + _vm._s(item.bike_no))]), _vm._v(" "), _c('div', {
       staticClass: "weui-media-box__desc"
     }, [_vm._v("押金：" + _vm._s(item.bike_money) + ", 车辆类型：" + _vm._s(item.bike_type) + ", 创建时间: " + _vm._s(item.create_time))])])])])
-  }))])
+  })), _vm._v(" "), _c('div', {
+    staticClass: "tab-footer"
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.isPay),
+      expression: "isPay"
+    }],
+    staticClass: "jie-suan",
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": _vm.Pay
+    }
+  }, [_vm._v("\n     支付押金\n    ")]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.isPay),
+      expression: "!isPay"
+    }],
+    staticClass: "jie-suan",
+    staticStyle: {
+      "background": "#666"
+    }
+  }, [_vm._v("\n      未选满车辆\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "pice"
+  })])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -259,5 +320,5 @@ if (false) {
 
 /***/ })
 
-},[214]);
+},[213]);
 //# sourceMappingURL=main.js.map

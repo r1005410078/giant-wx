@@ -20,7 +20,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#0099FF",
     "navigationBarTitleText": "骑行东钱湖",
-    "navigationBarTextStyle": "#FFF"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#666",
@@ -53,5 +53,6 @@
         "text": "我"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

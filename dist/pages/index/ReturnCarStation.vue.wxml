@@ -1,4 +1,4 @@
-<template name="d7fc22b8">
+<template name="6466defa">
   <view class="_div data-v-1e944e0b weui-panel">
     <view wx:key="index" key="{{index}}" class="_div data-v-1e944e0b weui-panel__bd" wx:for="{{data}}" wx:for-index="index" wx:for-item="item">
       <view class="_div data-v-1e944e0b weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">

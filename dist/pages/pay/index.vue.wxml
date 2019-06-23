@@ -1,4 +1,4 @@
-<template name="7603e838">
+<template name="2bd6cba5">
   <view class="_div data-v-0a4db1dd">
     <form bindsubmit="handleProxy" bindreset="formReset" report-submit="{{true}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_form data-v-0a4db1dd">
       <view class="_div data-v-0a4db1dd weui-cells__title">支付方式</view>

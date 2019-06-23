@@ -15,7 +15,6 @@
           </div>
           <div class="weui-cell__bd">
             <input @input="onIDCardChange" :value="id_card" class="weui-input" placeholder="请输入身份证"/>
-            <span class="id-card">填写身份证号码可享受免费户外保险一份</span>
           </div>
         </div>
         <div class="weui-cell weui-cell_input weui-cell_vcode">
@@ -68,7 +67,7 @@ export default {
   },
   methods: {
     verificationPhone () {
-      const myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/
+      const myreg = /^[1][0-9][0-9]{9}$/
       if (!myreg.test(this.phone)) {
         wx.showToast({
           title: '请输入有效的手机号码！',

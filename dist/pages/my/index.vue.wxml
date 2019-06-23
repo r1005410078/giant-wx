@@ -1,4 +1,4 @@
-<template name="4c238268">
+<template name="170e02eb">
   <view class="_div data-v-66a4166d">
     <view class="_div data-v-66a4166d weui-panel weui-panel_access">
       <navigator url="/pages/userinfo/main" class="_navigator data-v-66a4166d weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">

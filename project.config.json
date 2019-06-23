@@ -13,8 +13,10 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.2.1",
 	"appid": "wxe2a9b883331920bf",
-	"projectname": "dsads",
+	"projectname": "giant-wx",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

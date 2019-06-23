@@ -1,6 +1,6 @@
-<template name="e11b9328">
+<template name="2a12f8ed">
   <view class="_view data-v-83997536 weui-panel weui-panel_access">
-    <view class="_view data-v-83997536 weui-panel__hd"><label class="_span data-v-83997536">套餐名字: {{comboItem.name}}, </label> <label class="_span data-v-83997536">还需添加 {{count}} 辆车</label>
+    <view class="_view data-v-83997536 weui-panel__hd"><label class="_span data-v-83997536">{{comboItem.name}} </label> <label class="_span data-v-83997536">还需添加 {{count}} 辆车</label>
       <view class="_div data-v-83997536 sao-yi-sao" bindtap="handleProxy" hidden="{{!(count)}}" data-eventid="{{'0'}}" data-comkey="{{$k}}">
         <image class="_image data-v-83997536 sao-yi-sao-image" src="/resource/images/saoyisao.png"></image> <label class="_span data-v-83997536 sao-yi-sao-text">添加车辆</label>
       </view>
@@ -11,15 +11,18 @@
           <image class="_image data-v-83997536 weui-media-box__thumb" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532975901157&di=7781c88bcbbd4f6884445cebbd340732&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Ftfscom%2Fi3%2F3018155508%2FTB1FFkJXwvGK1Jjy0FeXXXYupXa_%2521%25210-item_pic.jpg"></image>
         </view>
         <view class="_div data-v-83997536 weui-media-box__bd weui-media-box__bd_in-appmsg">
-          <view class="_div data-v-83997536 weui-media-box__info" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}">
-            <image class="_image data-v-83997536 weui-media-box__info__meta" src="/resource/images/dels.jpg"></image>
-          </view>
+          <view style="color: red" class="_div data-v-83997536 weui-media-box__info" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}"> 删除 </view>
           <view class="_div data-v-83997536">
             <view class="_div data-v-83997536 weui-media-box__title">车辆编号: {{item.bike_no}}</view>
             <view class="_div data-v-83997536 weui-media-box__desc">押金：{{item.bike_money}}, 车辆类型：{{item.bike_type}}, 创建时间: {{item.create_time}}</view>
           </view>
         </view>
       </view>
+    </view>
+    <view class="_div data-v-83997536 tab-footer">
+      <view hidden="{{!(isPay)}}" class="_div data-v-83997536 jie-suan" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"> 支付押金 </view>
+      <view hidden="{{!(!isPay)}}" class="_div data-v-83997536 jie-suan" style="background: #666;"> 未选满车辆 </view>
+      <view class="_div data-v-83997536 pice"></view>
     </view>
   </view>
 </template>

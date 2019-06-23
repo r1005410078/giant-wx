@@ -1,4 +1,4 @@
-<import src="/components/mpvuePicker.vue.wxml" /><template name="9b4e3e84">
+<import src="/components/mpvuePicker.vue.wxml" /><template name="7b59d7ff">
   <view class="_div data-v-c3d31e92 page" style=" {{('height:' + (scrollHeight + 'px') + ';')}}">
     <view class="_div data-v-c3d31e92 weui-tab">
       <view class="_div data-v-c3d31e92 weui-navbar" id="navbar">
@@ -142,6 +142,6 @@
           </view>
         </view>
       </view>
-    </view> <template ref="mpvuePicker" bindonChange="handleProxy" bindonConfirm="handleProxy" bindonCancel="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="ab845f86"></template>
+    </view> <template ref="mpvuePicker" bindonChange="handleProxy" bindonConfirm="handleProxy" bindonCancel="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="9cb9f548"></template>
   </view>
 </template>

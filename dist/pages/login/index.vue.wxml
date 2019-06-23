@@ -1,4 +1,4 @@
-<template name="dad54c36">
+<template name="b385a534">
   <view class="_div data-v-2be494de page">
     <view class="_div data-v-2be494de home-image" hidden="{{!(!!miao)}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
       <image mode="aspectFit" src="{{homeImageUrl}}" class="_image data-v-2be494de"></image>

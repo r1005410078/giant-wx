@@ -1,4 +1,4 @@
-<template name="28d07259">
+<template name="7fee6338">
   <view class="_div data-v-1fe12a0c page__bd">
     <view class="_div data-v-1fe12a0c weui-cells weui-cells_after-title">
       <view class="_div data-v-1fe12a0c weui-cell weui-cell_input">
@@ -11,7 +11,7 @@
         <view class="_div data-v-1fe12a0c weui-cell__hd">
           <view class="_div data-v-1fe12a0c weui-label">身份证</view>
         </view>
-        <view class="_div data-v-1fe12a0c weui-cell__bd"><input bindinput="handleProxy" value="{{id_card}}" class="_input data-v-1fe12a0c weui-input" placeholder="请输入身份证" data-eventid="{{'1'}}" data-comkey="{{$k}}" /> <label class="_span data-v-1fe12a0c id-card">填写身份证号码可享受免费户外保险一份</label></view>
+        <view class="_div data-v-1fe12a0c weui-cell__bd"><input bindinput="handleProxy" value="{{id_card}}" class="_input data-v-1fe12a0c weui-input" placeholder="请输入身份证" data-eventid="{{'1'}}" data-comkey="{{$k}}" /></view>
       </view>
       <view class="_div data-v-1fe12a0c weui-cell weui-cell_input weui-cell_vcode">
         <view class="_div data-v-1fe12a0c weui-cell__hd">

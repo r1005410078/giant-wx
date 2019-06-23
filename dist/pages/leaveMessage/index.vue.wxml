@@ -1,4 +1,4 @@
-<template name="47b7fa20">
+<template name="c1df2762">
   <form bindsubmit="handleProxy" report-submit="true" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_form data-v-47175191">
     <view class="_div data-v-47175191 weui-panel__bd">
       <view class="_div data-v-47175191 weui-cells__title">对这次服务打个分把</view>

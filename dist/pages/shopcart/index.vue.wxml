@@ -1,12 +1,12 @@
-<import src="/components/inputPanel.vue.wxml" /><template name="214d2a36">
+<import src="/components/inputPanel.vue.wxml" /><template name="786b1b15">
   <view class="_div data-v-2ee7ba52" style=" {{('height:' + (windowHeight + 'px') + ';')}}">
     <scroll-view scroll-y class="_scroll-view data-v-2ee7ba52" style=" {{('height:' + (scrollHeight + 'px') + ';')}}">
-      <view wx:key="index" key="{{index}}" wx:for="{{data}}" wx:for-index="index" wx:for-item="item" class="_div data-v-2ee7ba52"><template data="{{...$root[$kk+'0-'+index], $root}}" is="3be63cbe"></template></view>
+      <view wx:key="index" key="{{index}}" wx:for="{{data}}" wx:for-index="index" wx:for-item="item" class="_div data-v-2ee7ba52"><template data="{{...$root[$kk+'0-'+index], $root}}" is="6ef33082"></template></view>
+      <view class="_div data-v-2ee7ba52 tab-footer">
+        <view hidden="{{!(isPay)}}" class="_div data-v-2ee7ba52 jie-suan" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"> 支付押金 </view>
+        <view hidden="{{!(!isPay)}}" class="_div data-v-2ee7ba52 jie-suan" style="background: #666;"> 未选满车辆 </view>
+        <view class="_div data-v-2ee7ba52 pice"></view>
+      </view>
     </scroll-view>
-    <view class="_div data-v-2ee7ba52 tab-footer">
-      <view hidden="{{!(isPay)}}" class="_div data-v-2ee7ba52 jie-suan" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"> 支付押金 </view>
-      <view hidden="{{!(!isPay)}}" class="_div data-v-2ee7ba52 jie-suan" style="background: #666;"> 未选满车辆 </view>
-      <view class="_div data-v-2ee7ba52 pice"></view>
-    </view>
   </view>
 </template>

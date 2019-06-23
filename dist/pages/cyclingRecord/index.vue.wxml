@@ -1,4 +1,4 @@
-<template name="ff710de0">
+<template name="1ae83b91">
   <view class="_div data-v-a1eeefee weui-panel__bd">
     <view wx:key="index" key="{{index}}" class="_div data-v-a1eeefee weui-media-box weui-media-box_text" wx:for="{{data}}" wx:for-index="index" wx:for-item="item">
       <view class="_div data-v-a1eeefee weui-media-box__image">
